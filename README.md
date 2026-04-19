@@ -77,11 +77,18 @@ A **zöld ikon** segítségével indítsd el a COM-COM port szimulációt:
 
 ### 6. lépés – Program elindítása
 
-Miután a VSPE szimuláció fut, indítsd el a Python programot:
+Miután a VSPE szimuláció fut, indítsd el az autó szimulácíót:
 
 ```bash
-python main.py
+python Dashboard.py
 ```
+
+illetve a DiagApp programot:
+
+```bash
+python DiagApp.py
+```
+
 
 ---
 
