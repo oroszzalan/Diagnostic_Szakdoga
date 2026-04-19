@@ -1,4 +1,4 @@
-# 🔌 Diagnostic_Szakdoga
+# Diagnostic_Szakdoga
 
 Egy Python 3.12-ben írt diagnosztikai program, amely soros port kommunikációt és grafikus felületet használ.
 
@@ -97,6 +97,37 @@ python DiagApp.py
 - A program **COM7** és **COM8** portokon kommunikál alapértelmezetten.
 - Győződj meg róla, hogy a VSPE szimuláció **fut**, mielőtt elindítod a Python programot.
 - Python **3.12** verzió szükséges.
+
+#Technikai adatok
+
+Program müködése
+--- 
+Fő file melyben a fő cikus található a Dashboard.py
+
+Ez felel a aútó műszerfal kirajzolásáért modulok példányositásáért kontroller inicializálásáért kontroller gombok beállitásáért modulok által számolt adatok megjelenitésért a kitrajzolt műszerfalon
+"menű" gomb a gyujtás ki be kapcsolásáért felel gyujtás bekapcsolása után a modulok meghivodnak "elkezdődik a kommunikácíó" "áramot kapnak a modulok" az autóban ezek az adatok a kontrollertől kapott inputok alapján modusolnak melyeket valós OBD2 szabvány szerint offsetelnek modositanak majd ezek hexadecimális formában tovább küldödnek a CanController osztály példányaiba egy modul több adat csomagot is más újra küldési frekvencián is át küld a cancontrollernek (erről később).
+A gyujtás állapotba valóság hűen olyan adatok olvashatóak melyek elérhetőek motor járása nélkül pl gáz/fék pedál állása, hőmérsékletek, tárolt hibakódók, sebességfokozat, egyéb inputok
+
+Az A gombbal a motor elinditható ilyenkor kezdenek olyan adatok is kiküldésre kerülni melyek csak a motor illetve az autó járásától valóság hűen olvashatok pl fordulat szám
+
+y gomb a DTC hibák random generálása ezek létrehozása jobb fgelűl jelzésre kerülnek piros kiirással
+
+x gomb a DTC hibák törlése Autón belül
+
+# DME modul
+lényegében egy valós BMW motorvezérlőjének szimulálása nyilvános dokumentumból kiszedett valamennyi motorvezérlőhöz köthető szenzor/érték modosulásra kerül a felhasználó által megadott inputok alapján ezek az értékek valóság hű formájában modosulnak ezek szintén a műszerfal igényei szerint jelennek meg, valamint a modulon belül történik a szabvány szerinti offsetelés és kerülnek bele3 a data csomagokba valós can/modul ID beosztás szerint (ID és a fent emlitett ismételt kiküldés gyorsasága valós can frame prioritás, adat fontoság alapján kerül meghivásra a cancontroller) kap egy obd2 szabvány kód szerinti illwetve "gyártó" által meghatározott DTC hiba kódót és jelentést. A motor nyomaték görbéje szintén egy nyilvános grafikonból kivett adat bizonyos pontok kivételével van megadva a motor teljesitménye egy listában amely arányositva van a köztes fordulat számok között
+
+#DSC modul
+A DTC modulhoz köthető szenzorok érttékeit modositjuk valóság hűen szintén ugyanaz az eljárás mint a DME modul esetében. ennek a modulnak bizonyos értékeit már más modulok állapotának figyelembe vételével modositunk
+
+#EPS modul
+A EPS kormányzáshoz fűzhetűő inpőutok alapján valósság hű adatokat modositunk ez DME, DSC modulok értékeit felhasználva bizosit adat modositást. folyamat hasonlo valósághűen  olyan értékek amelyknek számitását befolyásolja más modulok értékei azokat átvéve modosit
+
+A többi modul is ez elv alapján müködik
+
+
+
+
 
 
 
