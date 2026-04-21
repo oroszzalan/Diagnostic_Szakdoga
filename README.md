@@ -514,11 +514,6 @@ cd <repository-név>
 pip install pygame pyserial
 ```
 
-### Virtuális COM port beállítása
-
-1. Telepítsd a **com0com** szoftvert
-2. Hozz létre egy COM port párt: pl. **COM8 ↔ COM9**
-3. A szimuláció a COM8 porton küld, a DiagApp a COM9 porton fogad
 
 > A portszám a `Dashboard.py`-ban és a `DiagApp.py`-ban módosítható.
 
