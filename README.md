@@ -528,7 +528,7 @@ python DiagApp.py
 ```
 
 A DiagApp-ban:
-1. Válaszd ki a **COM9** portot a legördülő menüből
+1. Válaszd ki a **beállitott** portot a legördülő menüből
 2. Kattints a **Csatlakozás** gombra
 3. Kattints az **Élő adatok indítása** gombra
 
